@@ -157,7 +157,7 @@ function rngMachine(min, max){
 }
 function hourlyRates(minCustomers, maxCustomers) {
     for ( var i = 0; i < hours.length; i++) {
-    this.HourlyCust.push(Math.ceiling(this.currentCust(this.minCustomers, this.maxCustomers) * this.avg));
+    this.HourlyCust.push(Math.round(this.currentCust(this.minCustomers, this.maxCustomers) * this.avg));
     }
 }
 
