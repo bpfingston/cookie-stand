@@ -66,6 +66,7 @@ let cityDiv = document.getElementById("cityProfiles");
 
 function renderCities() {
     
+    
     const articleEle = document.createElement('article');
     let cityDiv = document.getElementById("cityProfiles")
     cityDiv.appendChild(articleEle);
@@ -76,6 +77,7 @@ function renderCities() {
     // let trEle = document.createElement('tr');
     //     tableEle.appendChild(trEle);
     //     for(var k = 0; k < CookieStand.cookieSushi.length)
+
     
 
 for (let i = 0; i < CookieStand.cookieSushi.length; i++) {
@@ -85,11 +87,11 @@ for (let i = 0; i < CookieStand.cookieSushi.length; i++) {
         const trEle = document.createElement('tr');
         tableEle.appendChild(trEle);
 
-        const theadEle = document.createElement('td');
+        const theadEle = document.createElement('th');
         theadEle.textContent = currentCity.cityLocation;
         trEle.appendChild(theadEle);
     
-        for(var j = 0; j < currentCity.cookieSalesPerHour.length; j++){
+        for(let j = 0; j < currentCity.cookieSalesPerHour.length; j++){
             let currentAmount = currentCity.cookieSalesPerHour[j];
 
             const tdEle = document.createElement('td');
