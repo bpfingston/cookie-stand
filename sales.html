@@ -10,18 +10,40 @@
       <h1>Yum Yum Sushi Cookies</h1>
     </header>
     <main>
-      <h2>City Cookie:</h2>
-      <table id="cityProfiles">
-        <!-- generate this from js: -->
-        <!-- <article>
-          <h2></h2>
-          <p></p>
-          <ul>
-            <li></li>
-          </ul>
-          <img>
-        </article> -->
-      </table>
+      <section>
+        <h2>Add a CookieStand</h2>
+        <form id="addCookieStand">
+          <fieldset>
+            <legend>Build a Stand!</legend>
+            <label for="name">City Name:</label>
+            <input type="text" name="name">
+            <label>Minimum number of Customers Daily
+              <input type="number" step=".1" name="minCust">
+            </label>
+            <label>Maximum number of Customers Daily
+              <input type="number" step=".1" name="maxCust">
+            </label>
+            <label>Average Cookies Sold Per Customer
+              <input type="number" step=".1" name="avgCookieSale">
+            </label>
+          </fieldset>
+          <button type="submit">Submit here!</button>
+        </form>
+      </section>
+      <section>
+        <h2>City Cookie:</h2>
+        <table id="cityProfiles">
+          <!-- generate this from js: -->
+          <!-- <article>
+            <h2></h2>
+            <p></p>
+            <ul>
+              <li></li>
+            </ul>
+            <img>
+          </article> -->
+        </table>
+      </section>
     </main>
     <footer>
     </footer>
