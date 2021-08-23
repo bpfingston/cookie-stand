@@ -3,12 +3,12 @@
 
 //----------------------------------------------------------------------------
 const cityTable = document.getElementById('cityProfiles');
-
+const formEle = document.getElementById('addCookieStand');
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 //----------------------------------------------------------------------------
 //creating a constructor for all the objects
-function CookieStand(cityLocation, minCust, maxCust, avgCookieSale){
-  this.cityLocation = cityLocation;
+function CookieStand(name, minCust, maxCust, avgCookieSale){
+  this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookieSale = avgCookieSale;
@@ -21,13 +21,13 @@ CookieStand.cookieSushi = [];
 //----------------------------------------------------------------------------
 
 //create new stores
+
 new CookieStand('Seattle', 23, 65, 6.3);
 new CookieStand('Tokyo', 3, 24, 1.2);
 new CookieStand('Dubai',11, 38, 3.7);
 new CookieStand('Paris',20, 38, 2.3);
 new CookieStand('Lima', 2, 16, 4.6);
 console.log(CookieStand.cookieSushi);
-
 //----------------------------------------------------------------------------
 
 //creating function to generate random num and push to empty array
@@ -125,7 +125,7 @@ CookieStand.prototype.renderSingleCity = function(body) {
   const rowEle = document.createElement('tr');
   body.appendChild(rowEle);
   // eslint-disable-next-line no-unused-vars
-  const thElem = makeEle('th', rowEle, this.cityLocation);
+  const thElem = makeEle('th', rowEle, this.name);
   for (let i = 0; i < hoursOpen.length; i++) {
     let cookiesThisHour = this.cookieSalesPerHour[i];
     total += cookiesThisHour;
@@ -172,12 +172,36 @@ function makeTheHeader() {
   makeEle('th', rowEle, ' ');
   for (let i = 0; i < hoursOpen.length; i++) {
     let currentTime = hoursOpen[i];
-
     makeEle('th', rowEle, currentTime);
   }
   makeEle('th', rowEle, 'Daily Total');
 }
 
+
+
+function standSubmit(event){
+  event.preventDefault();
+  console.log(event);
+  console.log(event.target.name.value);
+  let name = event.target.name.value;
+  let min = parseInt(event.target.minCust.value);
+  let max = parseInt(event.target.maxCust.value);
+  let avg = parseFloat(event.target.avgCookieSale.value);
+
+  let newStand = new CookieStand(name, min, max, avg);
+  console.log(newStand);
+  // console.log(CookieStand.cookieSushi.push(newStand));
+
+  newStand.dailySales();
+  cityTable.innerHTML = '';
+  makeTheFooter();
+  makeTheHeader();
+  renderAllCities();
+  event.target.reset();
+}
+
+
 makeTheHeader();
 renderAllCities();
 makeTheFooter();
+formEle.addEventListener('submit', standSubmit);
