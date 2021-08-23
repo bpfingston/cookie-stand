@@ -10,7 +10,7 @@
       <img id="fish" src="img/salmon.png">
       <nav>    
           <ul>
-          <li><a href="http://127.0.0.1:5501/sales.html">Sales!</a></li>
+          <li><a href="http://127.0.0.1:5501/index.html">Home!</a></li>
           <li><a href="http://127.0.0.1:5501/index.html">Merchandise!</a></li>
           <li><a href="http://127.0.0.1:5501/index.html">About Us!</a></li>
           <li><a href="http://127.0.0.1:5501/index.html">Contact Us!</a></li>
@@ -18,27 +18,31 @@
       </nav>
   </header>
     <main>
-      <section>
+      <section id="newStand">
         <h2>Add a CookieStand</h2>
         <form id="addCookieStand">
           <fieldset>
             <legend>Build a Stand!</legend>
             <label for="name">City Name:</label>
             <input type="text" name="name">
+            <br>
             <label>Minimum number of Customers Daily
               <input type="number" step=".1" name="minCust">
             </label>
+            <br>
             <label>Maximum number of Customers Daily
               <input type="number" step=".1" name="maxCust">
             </label>
+            <br>
             <label>Average Cookies Sold Per Customer
               <input type="number" step=".1" name="avgCookieSale">
             </label>
+            <br>
           </fieldset>
           <button type="submit">Submit here!</button>
         </form>
       </section>
-      <section>
+      <section id="solidStand">
         <h2>City Cookie:</h2>
         <table id="cityProfiles">
           <!-- generate this from js: -->
